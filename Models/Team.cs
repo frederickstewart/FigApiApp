@@ -33,7 +33,12 @@ namespace FigApiApp.Models
       /// Context Constructor.
       /// </summary>
       /// <param name="context"></param>
-      public Team(TeamContext context) : base(context) { }
+      public Team(TeamContext context, string name, string location, List<Player> players) : base(context)
+      {
+         Name = name;
+         Location = location;
+         Players = players;
+      }
    }
 
    public class TeamRepository

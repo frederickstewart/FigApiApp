@@ -32,7 +32,11 @@ namespace FigApiApp.Models
       /// Context constructor.
       /// </summary>
       /// <param name="context"></param>
-      public Player(PlayerContext context) : base(context) { }
+      public Player(PlayerContext context, string firstName, string lastName) : base(context)
+      {
+         FirstName = firstName;
+         LastName = lastName;
+      }
    }
 
    public class PlayerRepository

@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
+﻿using Microsoft.EntityFrameworkCore;
 
-using FigApiApp.Repositories;
-
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace FigApiApp.Models
 {
@@ -36,5 +33,26 @@ namespace FigApiApp.Models
       /// </summary>
       /// <param name="context"></param>
       public Player(PlayerContext context) : base(context) { }
+   }
+
+   public class PlayerRepository
+   {
+      private readonly PlayerContext _context;
+
+      public PlayerRepository(PlayerContext context)
+      {
+         _context = context;
+      }
+   }
+
+   public class PlayerContext : DbContext
+   {
+      public PlayerContext(DbContextOptions<PlayerContext> options) : base(options)
+      {
+         Database.EnsureCreated();
+      }
+
+      public DbSet<Player> Players { get; set; } = null!;
+
    }
 }

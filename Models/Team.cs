@@ -33,11 +33,9 @@ namespace FigApiApp.Models
       /// Context Constructor.
       /// </summary>
       /// <param name="context"></param>
-      public Team(TeamContext context, string name, string location, List<Player> players) : base(context)
+      public Team(TeamContext context) : base(context)
       {
-         Name = name;
-         Location = location;
-         Players = players;
+
       }
    }
 
@@ -55,7 +53,7 @@ namespace FigApiApp.Models
    {
       public TeamContext(DbContextOptions<TeamContext> options) : base(options)
       {
-         Database.EnsureCreated();
+
       }
 
       public DbSet<Team> Teams { get; set; } = null!;

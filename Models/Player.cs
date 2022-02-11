@@ -32,10 +32,9 @@ namespace FigApiApp.Models
       /// Context constructor.
       /// </summary>
       /// <param name="context"></param>
-      public Player(PlayerContext context, string firstName, string lastName) : base(context)
+      public Player(PlayerContext context) : base(context)
       {
-         FirstName = firstName;
-         LastName = lastName;
+
       }
    }
 
@@ -53,7 +52,7 @@ namespace FigApiApp.Models
    {
       public PlayerContext(DbContextOptions<PlayerContext> options) : base(options)
       {
-         Database.EnsureCreated();
+
       }
 
       public DbSet<Player> Players { get; set; } = null!;
